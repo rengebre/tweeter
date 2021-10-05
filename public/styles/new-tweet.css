@@ -13,7 +13,7 @@ form label {
   font-weight: 600;
 }
 
-textarea {
+.tweet-text {
   resize: none;
   height: 1.5em;
   border: none;
@@ -23,13 +23,18 @@ textarea {
   margin-bottom: 0.5em;
 }
 
+.tweet-text:focus {
+  outline: none;
+}
+
 .tweet-submit-count {
   display: flex;
   justify-content: space-between;
   font-family: 'Bungee', cursive;
 }
 
-form div button {
+.tweet-button {
   background-color: #4056A1;
   color: #FFFFFF;
+  border-radius: 3px;
 }
