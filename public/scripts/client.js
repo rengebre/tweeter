@@ -68,9 +68,12 @@ $(document).ready(function() {
     return $tweetArticle;
   }
 
-  $("form.tweet-form").on("submit", function(event) {
-    event.preventDefault();
+  // Load existing tweets onto page
+  renderTweets(data, "section.posted-tweets");
 
-    renderTweets(data, "section.posted-tweets");
-  });
+  // $("form.tweet-form").on("submit", function(event) {
+  //   event.preventDefault();
+
+  //   renderTweets(data, "section.posted-tweets");
+  // });
 })
