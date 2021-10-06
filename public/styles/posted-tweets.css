@@ -1,80 +1,81 @@
-section.posted-tweets {
+.posted-tweets {
   display: flex;
+}
+
+section.posted-tweets {
   flex-direction: column;
   align-items: center;
-  width: 100%;
   margin: 2em 0em;
 }
 
-article.posted-tweet {
-  display: flex;
+article.posted-tweets {
   flex-direction: column;
   justify-content: space-around;
-  width: 100%;
   align-items: center;
   border: 3px solid #545149;
   padding: 1em 0em;
 }
 
-article.posted-tweet * {
+article.posted-tweets * {
   font-weight: 600;
 }
 
-article.posted-tweet:hover {
+article.posted-tweets:hover {
   box-shadow: 5px 5px #888888;
 }
 
-article.posted-tweet header {
-  display: flex;
+header.posted-tweets {
   flex-direction: row;
   justify-content: space-between;
   width: 95%;
 }
 
-div.posted-tweet-user {
-  display: flex;
+header.posted-tweets .user {
   flex-direction: row;
   justify-content: space-between;
 }
 
-div.posted-tweet-user div {
+header.posted-tweets div.user div {
   padding-left: 1em;
   font-weight: 300;
 }
 
-div.posted-tweet-handle {
+header.posted-tweets div.handle {
   color: grey;
 }
 
-hr {
+hr.posted-tweets-separator {
   border: 2px solid #545149;
   width: 97%;
   margin-bottom: 2px;
 }
 
-.posted-tweet-text {
+main.posted-tweets {
   width: 95%;
   height: auto;
   padding-top: 25px;
 }
 
-footer.posted-tweet {
-  display: flex;
+footer.posted-tweets {
   flex-direction: row;
   justify-content: space-between;
   width: 95%;
 }
 
-footer.posted-tweet time {
+footer.posted-tweets time {
   font-size: 24px;
   font-weight: 300;
   color: grey;
 }
 
-div.posted-tweet-commands i.fas {
+footer.posted-tweets div.icons i.fas {
   color: rgb(102, 18, 180);
 }
 
-div.posted-tweet-commands i.fas:hover {
+footer.posted-tweets div.icons i.fas:hover {
   color: goldenrod;
+}
+
+footer.posted-tweets div.icons {
+  align-items: center;
 }
