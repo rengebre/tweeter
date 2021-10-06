@@ -14,6 +14,8 @@ article.posted-tweets {
   align-items: center;
   border: 3px solid #545149;
   padding: 1em 0em;
+  margin-bottom: 2em;
+  width:100%;
 }
 
 article.posted-tweets * {
