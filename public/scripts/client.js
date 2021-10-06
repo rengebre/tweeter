@@ -27,14 +27,16 @@ const data = [
     },
     "created_at": 1461113959088
   }
-]
+];
 
 $(document).ready(function() {
+
+  // render an array of tweets to the page
   const renderTweets = function(tweets, cssSelector) {
     for (const tweet of tweets) {
       $(cssSelector).append(createTweetElement(tweet));
     }
-  }
+  };
 
   const createTweetElement = function(tweet) {
     // Article jQuery element
@@ -45,7 +47,7 @@ $(document).ready(function() {
     const $tweetUserDiv = $(`<div class="posted-tweets user"></div>`);
     const $tweetUserAvatar = $(`<img src="${tweet.user.avatars}" alt="User Icon">`);
     const $tweetUsername = $(`<div><i>${tweet.user.name}</i></div>`);
-    const $tweetUserHandle = $(`<div class="handle">${tweet.user.handle}</div>`)
+    const $tweetUserHandle = $(`<div class="handle">${tweet.user.handle}</div>`);
     
     // Store all tweet main jQuery elements
     const $tweetContent = $(`<main class="posted-tweets">${tweet.content.text}</main>`);
@@ -55,18 +57,17 @@ $(document).ready(function() {
     
     // Store all tweet footer elements
     const $tweetFooter = $(`<footer class="posted-tweets"></footer>`);
-    const $tweetFooterTime = $(`<time class="time"><i>${timeago.format(tweet.created_at)}</i></time>`)
-    const $tweetFooterIcons = $(`<div class="posted-tweets icons"><i class="fas fa-flag fa-xs"></i><i class="fas fa-retweet fa-sm"></i><i class="fas fa-heart fa-xs"></i>
-  </div>`);
+    const $tweetFooterTime = $(`<time class="time"><i>${timeago.format(tweet.created_at)}</i></time>`);
+    const $tweetFooterIcons = $(`<div class="posted-tweets icons"><i class="fas fa-flag fa-xs"></i><i class="fas fa-retweet fa-sm"></i><i class="fas fa-heart fa-xs"></i></div>`);
 
-    // Build the HTML elements into a single structure under Article  
+    // Build the HTML elements into a single structure under Article
     $tweetUserDiv.append($tweetUserAvatar, $tweetUsername);
     $tweetHeader.append($tweetUserDiv, $tweetUserHandle);
     $tweetFooter.append($tweetFooterTime, $tweetFooterIcons);
     $tweetArticle.append($tweetHeader, $tweetContent, $tweetSeparator, $tweetFooter);
     
     return $tweetArticle;
-  }
+  };
 
   // Load existing tweets onto page
   renderTweets(data, "section.posted-tweets");
@@ -76,4 +77,4 @@ $(document).ready(function() {
 
   //   renderTweets(data, "section.posted-tweets");
   // });
-})
+});
