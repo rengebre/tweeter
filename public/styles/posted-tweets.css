@@ -1,0 +1,80 @@
+section.posted-tweets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 2em 0em;
+}
+
+article.posted-tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  border: 3px solid #545149;
+  padding: 1em 0em;
+}
+
+article.posted-tweet * {
+  font-weight: 600;
+}
+
+article.posted-tweet:hover {
+  box-shadow: 5px 5px #888888;
+}
+
+article.posted-tweet header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+}
+
+div.posted-tweet-user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.posted-tweet-user div {
+  padding-left: 1em;
+  font-weight: 300;
+}
+
+div.posted-tweet-handle {
+  color: grey;
+}
+
+hr {
+  border: 2px solid #545149;
+  width: 97%;
+  margin-bottom: 2px;
+}
+
+.posted-tweet-text {
+  width: 95%;
+  height: auto;
+  padding-top: 25px;
+}
+
+footer.posted-tweet {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+}
+
+footer.posted-tweet time {
+  font-size: 24px;
+  font-weight: 300;
+  color: grey;
+}
+
+div.posted-tweet-commands i.fas {
+  color: rgb(102, 18, 180);
+}
+
+div.posted-tweet-commands i.fas:hover {
+  color: goldenrod;
+}

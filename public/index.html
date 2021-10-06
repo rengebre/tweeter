@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css">
     <link rel="stylesheet" href="/styles/header.css" type="text/css">
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
+    <link rel="stylesheet" href="/styles/posted-tweets.css" type="text/css">
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -42,7 +43,7 @@
         </div>
       </div>
     </nav>
-    <header>
+    <header id="main-site-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -61,10 +62,33 @@
             <textarea class="tweet-text" name="text" id="tweet-text"></textarea>
             <div class="tweet-submit-count">
               <button class="tweet-button" type="submit">Tweet</button>
-              <output name="counter" class="tweet-char-counter" for="tweet-text">140</output>
+              <output name="counter" id="tweet-char-counter" for="tweet-text">140</output>
             </div>
           </form>
         </div>
+      </section>
+      <section class="posted-tweets">
+        <article class="posted-tweet">
+          <header>
+            <div class="posted-tweet-user">
+              <i class="fas fa-space-shuttle fa-rotate-270"></i>
+              <div><i>Russell Engebretson</i></div>
+            </div>
+            <div class="posted-tweet-handle">@Rengebre</div>
+          </header>
+          <main class="posted-tweet-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur veritatis corporis iure magni, optio vel deserunt. Nulla quo accusamus molestias, quasi omnis labore corporis earum, id fuga nihil, in perferendis.
+          </main>
+          <hr >
+          <footer class="posted-tweet">
+            <time class="posted-tweet-time"><i>1 day</i></time>
+            <div class="posted-tweet-commands">
+              <i class="fas fa-flag fa-xs"></i>
+              <i class="fas fa-retweet fa-sm"></i>
+              <i class="fas fa-heart fa-xs"></i>
+            </div>
+          </footer>
+        </article>
       </section>
     </main>
   </body>

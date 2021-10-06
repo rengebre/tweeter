@@ -1,16 +1,17 @@
-header {
+#main-site-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* position: relative; */
-  z-index: -1;
+  /* position: sticky; */
+  margin-top: 120px;
+  /* z-index: -1; */
   height: 400px;
   width: 100%;
   background-image: url("/images/black-linen.png");
   background-color: green;
 }
 
-header div {
+#main-site-header div {
   color: #FFFFFF;
 }
