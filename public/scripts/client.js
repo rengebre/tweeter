@@ -17,9 +17,6 @@ const exampleTweet = {
 };
 
 $(document).ready(function() {
-  // const convertDateToTimeOffset = {
-    
-  // };
 
   const createTweetElement = function(tweet) {
     // Article jQuery element
