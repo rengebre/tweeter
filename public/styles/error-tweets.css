@@ -1,0 +1,42 @@
+.tweet-error {
+  display: flex;
+}
+
+section.tweet-error {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  border: 3px solid rgba(255, 0, 0, 0.808);
+  width: auto;
+  /* height: 100px; */
+  margin-top: 1em;
+}
+
+#tweet-error-close {
+  color: rgba(255, 0, 0, 0.808);
+  margin-right: 0.1em;
+  margin-top: 0.5em;
+}
+
+#tweet-error-close:hover {
+  color: #4056A1;
+}
+
+div.tweet-error {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+div.tweet-error p {
+  color: rgba(255, 0, 0, 0.808);
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+div.tweet-error i.fas {
+  color: red;
+  margin-left: 1em;
+  margin-right: 1em;
+}

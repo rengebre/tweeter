@@ -6,6 +6,7 @@ section.posted-tweets {
   flex-direction: column;
   align-items: center;
   margin: 2em 0em;
+  width: 100%;
 }
 
 article.posted-tweets {
@@ -24,6 +25,7 @@ article.posted-tweets * {
 
 article.posted-tweets:hover {
   box-shadow: 5px 5px #888888;
+  transition: 0.4s;
 }
 
 header.posted-tweets {

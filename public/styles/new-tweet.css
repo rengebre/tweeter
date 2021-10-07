@@ -1,6 +1,7 @@
 .new-tweet {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .tweet-form {
@@ -37,4 +38,10 @@ form label {
   background-color: #4056A1;
   color: #FFFFFF;
   border-radius: 3px;
+}
+
+.tweet-button:hover {
+  color: #4056A1;
+  background-color: #FFFFFF;
+  box-shadow: 5px 5px #888888;
 }

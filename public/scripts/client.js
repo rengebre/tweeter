@@ -6,7 +6,45 @@
 
 $(document).ready(function() {
 
+  // Common variables used throughout the code
   const tweetSectionCSSSelector = "section.posted-tweets";
+  const tweetsURL = "http://localhost:8080/tweets";
+
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }; 
+
+  const createErrorElement = function(errorMessage) {
+    return $(
+      `<section class="tweet-error">
+      <i id="tweet-error-close" class="fas fa-window-close fa-xs"></i>
+      <div class="tweet-error">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p>${errorMessage}</p>
+        <i class="fas fa-exclamation-triangle"></i>
+      <div>
+    </section>`
+    )    
+  };
+
+  const createAndClearErrorHTML = function(errMsg) {
+
+    //clear any outstanding error messages
+    $("section.tweet-error").remove();
+
+    //create error message for too many characters
+    $("main.container").prepend(createErrorElement(errMsg));
+
+    // create an on-click listener for the close box in the error message. This will delete the error box
+    $("#tweet-error-close").on("click", function() {
+      $("section.tweet-error").remove();
+    });
+  }
+
+  // TWEET JS FUNCTIONALITY
+  /*******************************************************************************/
 
   // render an array of tweets to the page
   const renderTweets = function(tweets, cssSelector) {
@@ -15,6 +53,7 @@ $(document).ready(function() {
     }
   };
 
+  // function to generate the tweet container HTML
   const createTweetElement = function(tweet) {
     // Article jQuery element
     const $tweetArticle = $(`<article class="posted-tweets"></article>`);
@@ -27,7 +66,7 @@ $(document).ready(function() {
     const $tweetUserHandle = $(`<div class="handle">${tweet.user.handle}</div>`);
     
     // Store all tweet main jQuery elements
-    const $tweetContent = $(`<main class="posted-tweets">${tweet.content.text}</main>`);
+    const $tweetContent = $(`<main class="posted-tweets">${escape(tweet.content.text)}</main>`);
     
     // Store hr separator jQuery element
     const $tweetSeparator = $(`<hr class="posted-tweets-separator">`);
@@ -46,35 +85,48 @@ $(document).ready(function() {
     return $tweetArticle;
   };
 
-  // Fetch tweets from our database and append to the tweet section
+  // Fetch tweets array from our database and append to the tweet section on load
   const loadTweets = function() {
     $.ajax({
-      url: "http://localhost:8080/tweets",
+      url: tweetsURL,
       method: "GET"
     }).then((tweets) => {
-      // console.log(data);
-      // $(tweetSectionCSSSelector).append(createTweetElement(data.pop()));
       renderTweets(tweets.reverse(), tweetSectionCSSSelector);
     });
   };
 
-  // Load existing tweets onto page
-  // renderTweets(data, tweetSectionCSSSelector);
+  // Fetch a single tweet from the database after creation to add to the list
+  const loadTweet = function() {
+    $.ajax({
+      url: tweetsURL,
+      method: "GET"
+    }).then((tweets) => {
+      $(tweetSectionCSSSelector).prepend(createTweetElement(tweets.pop()));
+    });
+  };
 
+  // on tweet submit button click, check if tweet is valid, post data to the server and then upon successful post, do a GET request to retrieve the nicely formatted data object the backend was so kind to package up for us. prepened only the most recent post to the tweet section 
   $("form.tweet-form").on("submit", function(event) {
     event.preventDefault();
     const data = $(this).serialize();
     const charCounter = $("#tweet-char-counter").val();
-
+    
     if ( charCounter < 0) {
-      alert(`Tweet length too long`);
+      createAndClearErrorHTML("too many tweet items in your cart. please return some to their respective shelves");
     } else if (data == null || data === "text=") {
-      alert(`Text field is empty, add a message before posting.`);
+      createAndClearErrorHTML("Come on, you must have something to say, no? really? you're THAT boring?");
     } else {
-      $.post("http://localhost:8080/tweets", $(this).serialize(), () => {
+      // clear outstanding error messages
+      $("section.tweet-error").remove();
+
+      $.post(tweetsURL, $(this).serialize(), () => {
         $("textarea.tweet-text").val('');
-        loadTweets();
+        $("#tweet-char-counter").val(140);
+        loadTweet();
       });
     }
   });
+
+  // Load existing tweets onto page
+  loadTweets();
 });
