@@ -4,32 +4,9 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-
 $(document).ready(function() {
+
+  const tweetSectionCSSSelector = "section.posted-tweets";
 
   // render an array of tweets to the page
   const renderTweets = function(tweets, cssSelector) {
@@ -69,16 +46,35 @@ $(document).ready(function() {
     return $tweetArticle;
   };
 
+  // Fetch tweets from our database and append to the tweet section
+  const loadTweets = function() {
+    $.ajax({
+      url: "http://localhost:8080/tweets",
+      method: "GET"
+    }).then((tweets) => {
+      // console.log(data);
+      // $(tweetSectionCSSSelector).append(createTweetElement(data.pop()));
+      renderTweets(tweets.reverse(), tweetSectionCSSSelector);
+    });
+  };
+
   // Load existing tweets onto page
-  renderTweets(data, "section.posted-tweets");
+  // renderTweets(data, tweetSectionCSSSelector);
 
   $("form.tweet-form").on("submit", function(event) {
     event.preventDefault();
+    const data = $(this).serialize();
+    const charCounter = $("#tweet-char-counter").val();
 
-    $.post("http://localhost:8080/tweets", $(this).serialize(), function(data) {
-      console.log(data);
-    });
-
-
+    if ( charCounter < 0) {
+      alert(`Tweet length too long`);
+    } else if (data == null || data === "text=") {
+      alert(`Text field is empty, add a message before posting.`);
+    } else {
+      $.post("http://localhost:8080/tweets", $(this).serialize(), () => {
+        $("textarea.tweet-text").val('');
+        loadTweets();
+      });
+    }
   });
 });
