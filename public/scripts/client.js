@@ -72,9 +72,13 @@ $(document).ready(function() {
   // Load existing tweets onto page
   renderTweets(data, "section.posted-tweets");
 
-  // $("form.tweet-form").on("submit", function(event) {
-  //   event.preventDefault();
+  $("form.tweet-form").on("submit", function(event) {
+    event.preventDefault();
 
-  //   renderTweets(data, "section.posted-tweets");
-  // });
+    $.post("http://localhost:8080/tweets", $(this).serialize(), function(data) {
+      console.log(data);
+    });
+
+
+  });
 });
