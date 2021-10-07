@@ -44,4 +44,5 @@ form label {
   color: #4056A1;
   background-color: #FFFFFF;
   box-shadow: 5px 5px #888888;
+  transition: 0.25s;
 }
