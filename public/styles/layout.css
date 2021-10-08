@@ -30,11 +30,25 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-.container {
+main.container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   width: 90%;
   color: inherit;
+}
+
+@media only screen and (min-width: 1024px) {
+body {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+main.container {
+  margin-top: 120px;
+  width: 60%;
+}
+
 }

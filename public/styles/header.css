@@ -3,9 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* position: sticky; */
   margin-top: 120px;
-  /* z-index: -1; */
   height: 400px;
   width: 100%;
   background-image: url("/images/black-linen.png");
@@ -14,4 +12,17 @@
 
 #main-site-header div {
   color: #FFFFFF;
+}
+
+@media only screen and (min-width: 1024px) {
+  #main-site-header {
+    margin-top: 6.75em;
+    width: 25%;
+    min-width: 390px;
+    max-width: 450px;
+  }
+
+  #main-site-header img {
+    margin-top: 1em;
+  }
 }
