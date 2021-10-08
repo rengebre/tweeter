@@ -1,17 +1,42 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, single-page responsive Twitter clone. 
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+The app gives the user the ability to post tweets to a feed. The app uses Javascript, jQuery and AJAX on the front end, express and node on the back end (developed by lighthouse). 
+
+## Core Functionality
+- Write in a tweet box and "submit" the tweet to the backend using AJAX
+- Upon successful POST request, GET the tweet object data back from the back end and update the feed
+- The app must be single page
+- App is responsive
+
+### Stretch Functionality
+- Added a CSS animation to the nav bar button when hovering over the element
+- Added jQuery functionlity to collapse/expand tweet submission form
+- Added a pop-up button which triggers on scrolling and will guide to the tweet form upon clicking
+- Added a close button on my error pop-ups in case you wish to close the warning at any time
+
+# Final Product
+!["Desktop View"](./public/images/desktopView.png)
+
+!["Mobile View"](./public/images/mobileView.png)
+
+!["Error Message Popup"](./public/images/errorMessage.gif)
+
+!["Write New Tweet animation and control"](./public/images/writeNewTweet.gif)
+
+!["Scroll pop-up button"](./public/images/scrollButton.gif)
 
 ## Getting Started
 
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+1. Install dependencies using the `npm install` command.
+2. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
+3. Go to <http://localhost:8080/> in your browser.
 
 ## Dependencies
 
 - Express
 - Node 5.10.x or above
+- nodemon
+- chance
+- md5

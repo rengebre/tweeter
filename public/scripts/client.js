@@ -180,6 +180,7 @@ $(document).ready(function() {
     }
   });
 
+  // on click focus on the tweet text box
   $('button.scroll-button').on("click", function() {
     if ($("section.new-tweet").css("display") === "none"){
       $("section.new-tweet").show();
