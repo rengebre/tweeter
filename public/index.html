@@ -41,21 +41,26 @@
         <span class="logo">tweeter</span>
         <div class="nav-info-block">
           <span class="nav-info"><b>Write</b> a new tweet</span>
-          <span><i class="fas fa-angle-double-down"></i></span>
+          <i class="fas fa-angle-double-down"></i>
         </div>
       </div>
     </nav>
+
+    <!-- Page header section -->
     <header id="main-site-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
       <br>
       <div>
-          <h2 >Rusty Shackelford</h2>
+          <h2>Rusty Shackelford</h2>
       </div>
     </header>
-    <!-- Page-specific (main) content here -->
+
+    <!-- Main Body -->
     <main class="container">
+
+      <!-- New Tweet section -->
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <div>
@@ -69,7 +74,12 @@
           </form>
         </div>
       </section>
+
+      <!-- Empty Section elements for loading tweet blocks -->
       <section class="posted-tweets"></section>
+      <section class="scroll-button">
+        <button class="scroll-button"><i class="fas fa-angle-double-up fa-lg"></i></button>
+      </section>
     </main>
   </body>
   <script src="scripts/composer-char-counter.js"></script>

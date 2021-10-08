@@ -28,11 +28,7 @@ $(document).ready(function() {
     
   // function to generate the tweet container HTML
   const createTweetElement = function(tweet) {
-    // let $test
-    // $.ajax('../partials/tweet-element.html', { method: 'GET' })
-    // .then(function (morePostsHtml) {
-    //   console.log('Success: ', morePostsHtml);
-    // });
+    // Current implementation, I want to have all this in another html file and load it in but have not figured out how to do this with the string literals quite yet... to be continued
     return $(`<article class="posted-tweets">
     <header class="posted-tweets">
       <div class="posted-tweets user">
@@ -163,10 +159,41 @@ $(document).ready(function() {
     }
   });
 
+  // Show the tweet link button depending on the scroll position of the window
+  $(window).on("scroll", function() {
+    const $scrollButton = $("section.scroll-button");
+    const $navButton = $("div.nav-info-block");
+    let scrollLimit = 0;
+
+    if ($(window).width() > 1009) {
+      scrollLimit = 105;
+    } else {
+      scrollLimit = 575;
+    }
+
+    if (window.scrollY > scrollLimit) {
+      $scrollButton.show();
+      $navButton.hide();
+    } else {
+      $scrollButton.hide();
+      $navButton.show();
+    }
+  });
+
+  $('button.scroll-button').on("click", function() {
+    if ($("section.new-tweet").css("display") === "none"){
+      $("section.new-tweet").show();
+    }
+    $("textarea.tweet-text").focus();
+  });
+
   // RUN ON PAGE LOAD
   /******************************************************/
 
   // Load existing tweets onto page
   loadTweets();
+
+  // hide the scroll button until it is needed
+  $("section.scroll-button").hide();
 });
   

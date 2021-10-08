@@ -7,7 +7,7 @@ $(document).ready(function() {
   $('.tweet-text').on("input", function(e) {
     const inputLength = $(this).val().length;
     
-    // The following code is to navigate through the DOM to find the correct element instead of using the $("#tweet-char-counter") handle directly. This is what compassed has informed us to do, but I really don't like it - it's very unmaintanable and unreadable.
+    // The following commented out code is to navigate through the DOM to find the correct element instead of using the $("#tweet-char-counter") handle directly. This is what compass has informed us to do, but I really don't like it - it's very unmaintanable and unreadable.
     
     // let $counterHandle;
 
@@ -20,8 +20,7 @@ $(document).ready(function() {
     // }
   
     
-    // implement the counter using the element ID of the counter
-    
+    // implement the counter using the element ID of the counter    
     const $counterHandle = $('#tweet-char-counter');
     
     $counterHandle.val(maxTweetChars - inputLength);
